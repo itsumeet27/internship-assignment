@@ -20,42 +20,41 @@
 
       if(isset($_GET['add']) || isset($_GET['edit'])){
         $parentQuery = $db->query("SELECT * FROM internships");
-        $invoiceNo = ((isset($_POST['invoiceNo']) && $_POST['invoiceNo'] != '')?sanitize($_POST['invoiceNo']):'');
-        $productId = ((isset($_POST['productId']) && $_POST['productId'] != '')?sanitize($_POST['productId']):'');
-        $invoiceDate = ((isset($_POST['invoiceDate']) && $_POST['invoiceDate'] != '')?sanitize($_POST['invoiceDate']):'');
-        $dateOfSupply = ((isset($_POST['dateOfSupply']) && $_POST['dateOfSupply'] != '')?sanitize($_POST['dateOfSupply']):'');
+        $category = ((isset($_POST['category']) && $_POST['category'] != '')?sanitize($_POST['category']):'');
+        $postedOn = ((isset($_POST['postedOn']) && $_POST['postedOn'] != '')?sanitize($_POST['postedOn']):'');
+        $applyBy = ((isset($_POST['applyBy']) && $_POST['applyBy'] != '')?sanitize($_POST['applyBy']):'');
         $nameOfCompany = ((isset($_POST['nameOfCompany']) && $_POST['nameOfCompany'] != '')?sanitize($_POST['nameOfCompany']):'');
-        $addressOfCompany = ((isset($_POST['addressOfCompany']) && $_POST['addressOfCompany'] != '')?sanitize($_POST['addressOfCompany']):'');
-        $pono = ((isset($_POST['pono']) && $_POST['pono'] != '')?sanitize($_POST['pono']):'');    
-        $gst = ((isset($_POST['gst']) && $_POST['gst'] != '')?sanitize($_POST['gst']):'');
-        $productName = ((isset($_POST['productName']) && $_POST['productName'] != '')?sanitize($_POST['productName']):'');
-        $hsn = ((isset($_POST['hsn']) && $_POST['hsn'] != '')?sanitize($_POST['hsn']):'');
-        $quantity = ((isset($_POST['quantity']) && $_POST['quantity'] != '')?sanitize($_POST['quantity']):'');
-        $price = ((isset($_POST['price']) && $_POST['price'] != '')?sanitize($_POST['price']):'');
+        $aboutCompany = ((isset($_POST['aboutCompany']) && $_POST['aboutCompany'] != '')?sanitize($_POST['aboutCompany']):'');        
+        $aboutInternship = ((isset($_POST['aboutInternship']) && $_POST['aboutInternship'] != '')?sanitize($_POST['aboutInternship']):'');
+        $location = ((isset($_POST['location']) && $_POST['location'] != '')?sanitize($_POST['location']):'');    
+        $perks = ((isset($_POST['perks']) && $_POST['perks'] != '')?sanitize($_POST['perks']):'');
+        $duration = ((isset($_POST['duration']) && $_POST['duration'] != '')?sanitize($_POST['duration']):'');
+        $stipend = ((isset($_POST['stipend']) && $_POST['stipend'] != '')?sanitize($_POST['stipend']):'');
+        $positions = ((isset($_POST['positions']) && $_POST['positions'] != '')?sanitize($_POST['positions']):'');
+        $whoCanApply = ((isset($_POST['whoCanApply']) && $_POST['whoCanApply'] != '')?sanitize($_POST['whoCanApply']):'');
 
         if(isset($_GET['edit'])){
           $edit_id = (int)$_GET['edit'];
-          $invoiceResults = $db->query("SELECT * FROM invoice WHERE id = '$edit_id'");
-          $invoice = mysqli_fetch_assoc($invoiceResults);
-          $invoiceNo = ((isset($_POST['invoiceNo']) && $_POST['invoiceNo'] != '')?sanitize($_POST['invoiceNo']):$invoice['invoiceNo']);
-          $productId = ((isset($_POST['productId']) && $_POST['productId'] != '')?sanitize($_POST['productId']):$invoice['productId']);
-          $invoiceDate = ((isset($_POST['invoiceDate']) && $_POST['invoiceDate'] != '')?sanitize($_POST['invoiceDate']):$invoice['invoiceDate']);
-          $dateOfSupply = ((isset($_POST['dateOfSupply']) && $_POST['dateOfSupply'] != '')?sanitize($_POST['dateOfSupply']):$invoice['dateOfSupply']);
-          $nameOfCompany = ((isset($_POST['nameOfCompany']) && $_POST['nameOfCompany'] != '')?sanitize($_POST['nameOfCompany']):$invoice['nameOfCompany']);
-          $addressOfCompany = ((isset($_POST['addressOfCompany']) && $_POST['addressOfCompany'] != '')?sanitize($_POST['addressOfCompany']):$invoice['addressOfCompany']);
-          
-          $pono = ((isset($_POST['pono']) && $_POST['pono'] != '')?sanitize($_POST['pono']):$invoice['pono']);
-          $gst = ((isset($_POST['gst']) && $_POST['gst'] != '')?sanitize($_POST['gst']):$invoice['gst']);
-          $productName = ((isset($_POST['productName']) && $_POST['productName'] != '')?sanitize($_POST['productName']):$invoice['productName']);
-          $hsn = ((isset($_POST['hsn']) && $_POST['hsn'] != '')?sanitize($_POST['hsn']):$invoice['hsn']);
-          $quantity = ((isset($_POST['quantity']) && $_POST['quantity'] != '')?sanitize($_POST['quantity']):$invoice['quantity']);
-          $price = ((isset($_POST['price']) && $_POST['price'] != '')?sanitize($_POST['price']):$invoice['price']);
+          $internshipResults = $db->query("SELECT * FROM internships WHERE id = '$edit_id'");
+          $internship = mysqli_fetch_assoc($internshipResults);
+          $category = ((isset($_POST['category']) && $_POST['category'] != '')?sanitize($_POST['category']):$internship['category']);
+          $postedOn = ((isset($_POST['postedOn']) && $_POST['postedOn'] != '')?sanitize($_POST['postedOn']):$internship['postedOn']);
+          $applyBy = ((isset($_POST['applyBy']) && $_POST['applyBy'] != '')?sanitize($_POST['applyBy']):$internship['applyBy']);
+          $nameOfCompany = ((isset($_POST['nameOfCompany']) && $_POST['nameOfCompany'] != '')?sanitize($_POST['nameOfCompany']):$internship['nameOfCompany']);
+          $aboutCompany = ((isset($_POST['aboutCompany']) && $_POST['aboutCompany'] != '')?sanitize($_POST['aboutCompany']):$internship['aboutCompany']);          
+          $aboutInternship = ((isset($_POST['aboutInternship']) && $_POST['aboutInternship'] != '')?sanitize($_POST['aboutInternship']):$internship['aboutInternship']);
+          $location = ((isset($_POST['location']) && $_POST['location'] != '')?sanitize($_POST['location']):$internship['location']);
+          $perks = ((isset($_POST['perks']) && $_POST['perks'] != '')?sanitize($_POST['perks']):$internship['perks']);
+          $duration = ((isset($_POST['duration']) && $_POST['duration'] != '')?sanitize($_POST['duration']):$internship['duration']);
+          $stipend = ((isset($_POST['stipend']) && $_POST['stipend'] != '')?sanitize($_POST['stipend']):$internship['stipend']);
+          $positions = ((isset($_POST['positions']) && $_POST['positions'] != '')?sanitize($_POST['positions']):$internship['positions']);
+          $whoCanApply = ((isset($_POST['whoCanApply']) && $_POST['whoCanApply'] != '')?sanitize($_POST['whoCanApply']):$internship['whoCanApply']);
         }
 
         if($_POST){
-          $insertSql = "INSERT INTO internships (`invoiceNo`,`nameOfCompany`,`addressOfCompany`,`invoiceDate`,`dateOfSupply`,`pono`,`gst`,`productName`,`hsn`,`quantity`,`price`) VALUES ('$invoiceNo','$nameOfCompany','$addressOfCompany','$invoiceDate','$dateOfSupply','$pono','$gst','$productName','$hsn','$quantity','$price')";
+          $insertSql = "INSERT INTO internships (`category`,`postedOn`,`applyBy`,`nameOfCompany`,`aboutCompany`,`aboutInternship`,`location`,`perks`,`duration`,`stipend`,`positions`,`whoCanApply`) VALUES ('$category','$postedOn','$applyBy','$nameOfCompany','$aboutCompany','$aboutInternship','$location','$perks','$duration','$stipend','$positions','$whoCanApply')";
             if(isset($_GET['edit'])){
-              $insertSql = "UPDATE invoice SET invoiceNo = '$invoiceNo', nameOfCompany = '$nameOfCompany', invoiceDate = '$invoiceDate', dateOfSupply = '$dateOfSupply', pono = '$pono', gst = '$gst', productName = '$productName', hsn = '$hsn', quantity = '$quantity', price = '$price' WHERE id = '$edit_id'";
+              $insertSql = "UPDATE internships SET category = '$category', postedOn = '$postedOn', applyBy = '$applyBy', nameOfCompany = '$nameOfCompany', aboutCompany = '$aboutCompany', aboutInternship = '$aboutInternship', location = '$location', perks = '$perks', duration = '$duration', stipend = '$stipend', positions = '$positions', whoCanApply = '$whoCanApply' WHERE id = '$edit_id'";
             }
           $db->query($insertSql);
         }
@@ -77,7 +76,7 @@
               </div>
               <!-- Posted On -->
               <div class="md-form">
-                <input type="date" id="postedOn" name="postedOn" class="form-control" value="<?=$postedOn;?>" required>
+                <input type="date" id="postedOn" name="postedOn" class="form-control" value="<?=$postedOn;?>">
                 <label for="postedOn">Posted On</label>
               </div>
               <!-- Apply By -->
@@ -92,12 +91,12 @@
               </div>
               <!-- About Company -->
               <div class="md-form">
-                <input type="text" id="aboutCompany" name="aboutCompany" class="form-control" value="<?=$aboutCompany;?>" required>
+                <textarea id="aboutCompany" name="aboutCompany" class="md-textarea form-control" value="<?=$aboutCompany;?>" rows="3" required></textarea>
                 <label for="aboutCompany">About Company</label>
               </div>
               <!-- About Internship -->
               <div class="md-form">
-                <input type="text" id="aboutInternship" name="aboutInternship" class="form-control" value="<?=$aboutInternship;?>" required>
+                <textarea id="aboutInternship" name="aboutInternship" class="md-textarea form-control" value="<?=$aboutInternship;?>" rows="3" required></textarea>
                 <label for="aboutInternship">About Internship</label>
               </div>
               <!-- Location -->
@@ -132,7 +131,7 @@
               </div>
 
               <div class="card-footer">
-                <button class="btn btn-black waves-effect z-depth-0" type="submit" name="add"><?=((isset($_GET['edit']))?'EDIT':'ADD');?> INVOICE</button>
+                <button class="btn btn-black waves-effect z-depth-0" type="submit" name="add"><?=((isset($_GET['edit']))?'EDIT':'ADD');?> INTERNSHIPS</button>
               </div>
             </form>
           </div>      
@@ -140,54 +139,46 @@
       </div>
       <?php } 
           else{
-            $sql = "SELECT * FROM invoice WHERE deleted = 0";
+            $sql = "SELECT * FROM internships WHERE deleted = 0";
             $presults = $db->query($sql);
           
       ?>
       <div class="container-fluid table-responsive">  
-        <a href="internship.php?add=1" class="btn text-white" style="background-color: #1c2a48" id="add-product-btn">Add Invoice</a>
+        <a href="internship.php?add=1" class="btn text-white" style="background-color: #1c2a48" id="add-product-btn">Add Internship</a>
         <div class="clearfix"></div><br>
         <table class="table table-striped table-bordered" style="display: table;">
           <thead>
             <th></th>
             <th></th>
-            <th class="text-center"><h5 class="h5-responsive"><b>Invoice No</b></h5></th>
-            <th class="text-center"><h5 class="h5-responsive"><b>Invoice Date</b></h5></th>
-            <th class="text-center"><h5 class="h5-responsive"><b>Date of Supply</b></h5></th>
-            <th class="text-center"><h5 class="h5-responsive"><b>Company Name</b></h5></th>
-            <th class="text-center"><h5 class="h5-responsive"><b>Company Address</b></h5></th>
-            <th class="text-center"><h5 class="h5-responsive"><b>PO No</b></h5></th>          
-            <th class="text-center"><h5 class="h5-responsive"><b>HSN Code</b></h5></th>
-            <th class="text-center"><h5 class="h5-responsive"><b>Product Description</b></h5></th>
-            <th class="text-center"><h5 class="h5-responsive"><b>GST No</b></h5></th>
-            <th class="text-center"><h5 class="h5-responsive"><b>Quantity</b></h5></th>
-            <th class="text-center"><h5 class="h5-responsive"><b>Price</b></h5></th>
+            <th class="text-center"><h5 class="h5-responsive"><b>Name of Company</b></h5></th>
+            <th class="text-center"><h5 class="h5-responsive"><b>Location</b></h5></th>
+            <th class="text-center"><h5 class="h5-responsive"><b>Duration</b></h5></th>
+            <th class="text-center"><h5 class="h5-responsive"><b>Stipend</b></h5></th>          
+            <th class="text-center"><h5 class="h5-responsive"><b>Available Positions</b></h5></th>
+            <th class="text-center"><h5 class="h5-responsive"><b>Posted On</b></h5></th>
+            <th class="text-center"><h5 class="h5-responsive"><b>Apply By</b></h5></th>
           </thead>
           <tbody>
             <?php 
-              $sql = "SELECT * FROM invoice WHERE deleted = 0";
-              $invoices = $db->query($sql);
+              $sql = "SELECT * FROM internships WHERE deleted = 0";
+              $internships = $db->query($sql);
             ?>
 
-            <?php while($invoice = mysqli_fetch_assoc($invoices)):?>
+            <?php while($internship = mysqli_fetch_assoc($internships)):?>
               <tr>
                 <td>
-                  <a href="invoice.php?edit=<?=$invoice['id'];?>"><i class="fas fa-edit"></i></a>
+                  <a href="internship.php?edit=<?=$internship['id'];?>"><i class="fas fa-edit"></i></a>
                 </td>
                 <td>
-                  <a href="invoice.php?delete=<?=$invoice['id'];?>"><i class="fa fa-trash fa-lg"></i></a>
+                  <a href="internship.php?delete=<?=$internship['id'];?>"><i class="fas fa-trash"></i></a>
                 </td>
-                <td class="text-center"><?=$invoice['invoiceNo'];?></td>
-                <td class="text-center"><?=$invoice['invoiceDate'];?></td>
-                <td class="text-center"><?=$invoice['dateOfSupply'];?></td>
-                <td class="text-center"><?=$invoice['nameOfCompany'];?></td>
-                <td class="text-center"><?=$invoice['addressOfCompany'];?></td>
-                <td class="text-center"><?=$invoice['pono'];?></td>
-                <td class="text-center"><?=$invoice['gst'];?></td>
-                <td class="text-center"><?=$invoice['productName'];?></td>
-                <td class="text-center"><?=$invoice['hsn'];?></td>
-                <td class="text-center"><?=$invoice['quantity'];?></td>
-                <td class="text-center"><?=$invoice['price'];?></td>
+                <td class="text-center"><?=$internship['nameOfCompany'];?></td>
+                <td class="text-center"><?=$internship['location'];?></td>
+                <td class="text-center"><?=$internship['duration'];?></td>
+                <td class="text-center"><?=$internship['stipend'];?></td>
+                <td class="text-center"><?=$internship['positions'];?></td>
+                <td class="text-center"><?=$internship['postedOn'];?></td>
+                <td class="text-center"><?=$internship['applyBy'];?></td>
               </tr>
             <?php endwhile;?>
           </tbody>
