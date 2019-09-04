@@ -1,14 +1,14 @@
-<!DOCTYPE html>
-
 <?php 
-  include 'core/init.php';
-  include 'includes/header.php';
-  $sql = "SELECT * FROM internships WHERE deleted=0";
-  $internships = $db->query($sql);
+  session_start();
+  require_once '../core/init.php';
+  include('includes/header.php');
 ?>
 
-<html lang="en">
-
+<?php 
+  if(!isset($_SESSION['email'])){
+      echo "<script>window.open('login.php','_self')</script>";
+    }else{
+?>
 <?php 
   if(isset($_GET['internship'])){
     $id = sanitize((int)$_GET['internship']);
@@ -41,7 +41,7 @@
   }
 ?>
 
-  <div class="container-fluid">
+<div class="container-fluid">
     <div class="card">
       <div class="card-header">
         <h2 class="p-2 text-center card-title"><?=$category;?> Internship in <?=$location;?> at <?=$nameOfCompany;?></h2>
@@ -90,10 +90,9 @@
           </div>
         </div>
       </div>
-      <div class="card-footer">
-        <a href="#" class="btn btn-success btn-black waves-effect z-depth-0">Apply Now</a>
-      </div>
     </div>
   </div>
 
 <?php include 'includes/footer.php';?>
+
+<?php } ?>

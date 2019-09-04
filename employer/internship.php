@@ -5,6 +5,25 @@
 ?>
 
 <?php 
+  $email = $_SESSION['email'];
+  $sql = "SELECT * FROM employer WHERE email = '$email'";
+    $result = $db->query($sql);
+    while ($row_pro = mysqli_fetch_array($result)) {
+          $emp_id = $row_pro['id'];
+          $emp_name = $row_pro['nameOfCompany'];
+          $emp_about = $row_pro['aboutCompany'];
+          $emp_email = $row_pro['email'];
+          $emp_address1 = $row_pro['address1'];
+          $emp_address2 = $row_pro['address2'];
+          $emp_city = $row_pro['city'];
+          $emp_state = $row_pro['state'];
+          $emp_zipcode = $row_pro['zipcode'];
+          $emp_phone = $row_pro['phone'];
+          $emp_country = $row_pro['country'];
+    }
+?>
+
+<?php 
   if(!isset($_SESSION['email'])){
       echo "<script>window.open('login.php','_self')</script>";
     }else{
@@ -52,9 +71,9 @@
         }
 
         if($_POST){
-          $insertSql = "INSERT INTO internships (`category`,`postedOn`,`applyBy`,`nameOfCompany`,`aboutCompany`,`aboutInternship`,`location`,`perks`,`duration`,`stipend`,`positions`,`whoCanApply`) VALUES ('$category','$postedOn','$applyBy','$nameOfCompany','$aboutCompany','$aboutInternship','$location','$perks','$duration','$stipend','$positions','$whoCanApply')";
+          $insertSql = "INSERT INTO internships (`category`,`emp_id`,`postedOn`,`applyBy`,`nameOfCompany`,`aboutCompany`,`aboutInternship`,`location`,`perks`,`duration`,`stipend`,`positions`,`whoCanApply`) VALUES ('$category','$emp_id','$postedOn','$applyBy','$nameOfCompany','$aboutCompany','$aboutInternship','$location','$perks','$duration','$stipend','$positions','$whoCanApply')";
             if(isset($_GET['edit'])){
-              $insertSql = "UPDATE internships SET category = '$category', postedOn = '$postedOn', applyBy = '$applyBy', nameOfCompany = '$nameOfCompany', aboutCompany = '$aboutCompany', aboutInternship = '$aboutInternship', location = '$location', perks = '$perks', duration = '$duration', stipend = '$stipend', positions = '$positions', whoCanApply = '$whoCanApply' WHERE id = '$edit_id'";
+              $insertSql = "UPDATE internships SET category = '$category',emp_id = '$emp_id', postedOn = '$postedOn', applyBy = '$applyBy', nameOfCompany = '$nameOfCompany', aboutCompany = '$aboutCompany', aboutInternship = '$aboutInternship', location = '$location', perks = '$perks', duration = '$duration', stipend = '$stipend', positions = '$positions', whoCanApply = '$whoCanApply' WHERE id = '$edit_id'";
             }
           $db->query($insertSql);
         }
@@ -86,12 +105,12 @@
               </div>
               <!-- Name of Company -->
               <div class="md-form">
-                <input type="text" id="nameOfCompany" name="nameOfCompany" class="form-control" value="<?=$nameOfCompany;?>" required>
+                <input type="text" id="nameOfCompany" name="nameOfCompany" class="form-control" value="<?=$emp_name;?>" required>
                 <label for="nameOfCompany">Name of Company</label>
               </div>
               <!-- About Company -->
               <div class="md-form">
-                <textarea id="aboutCompany" name="aboutCompany" class="md-textarea form-control" value="<?=$aboutCompany;?>" rows="3" required></textarea>
+                <textarea id="aboutCompany" name="aboutCompany" class="md-textarea form-control" value="<?=$emp_about;?>" rows="3" required></textarea>
                 <label for="aboutCompany">About Company</label>
               </div>
               <!-- About Internship -->
@@ -139,7 +158,7 @@
       </div>
       <?php } 
           else{
-            $sql = "SELECT * FROM internships WHERE deleted = 0";
+            $sql = "SELECT * FROM internships WHERE deleted = 0 AND emp_id = $emp_id";
             $presults = $db->query($sql);
           
       ?>
@@ -160,7 +179,7 @@
           </thead>
           <tbody>
             <?php 
-              $sql = "SELECT * FROM internships WHERE deleted = 0";
+              $sql = "SELECT * FROM internships WHERE deleted = 0 AND emp_id = $emp_id";
               $internships = $db->query($sql);
             ?>
 
@@ -172,7 +191,7 @@
                 <td>
                   <a href="internship.php?delete=<?=$internship['id'];?>"><i class="fas fa-trash"></i></a>
                 </td>
-                <td class="text-center"><?=$internship['nameOfCompany'];?></td>
+                <td class="text-center"><?=$emp_name;?></td>
                 <td class="text-center"><?=$internship['location'];?></td>
                 <td class="text-center"><?=$internship['duration'];?></td>
                 <td class="text-center"><?=$internship['stipend'];?></td>

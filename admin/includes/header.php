@@ -32,7 +32,7 @@
             <a class="nav-link" href="index.php">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="companies.php">Companies</a>
+            <a class="nav-link" href="internship.php">Internship</a>
           </li>
           <?php 
             if(!isset($_SESSION['email'])){

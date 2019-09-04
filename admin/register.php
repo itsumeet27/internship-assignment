@@ -82,8 +82,10 @@
 		$phone = sanitize($_POST['phone']);
 		$country = sanitize($_POST['country']);
 
-		$insertUser = "INSERT INTO users (ip,fullname,email,password,address1,address2,city,state,zipcode,phone,country) VALUES ('$ip','$fullname','$email','$password','$address1','$address2','$city','$state','$zipcode','$phone','$country')";
+		$insertUser = "INSERT INTO admin (`ip`,`fullname`,`email`,`password`,`address1`,`address2`,`city`,`state`,`zipcode`,`phone`,`country`) VALUES ('$ip','$fullname','$email','$password','$address1','$address2','$city','$state','$zipcode','$phone','$country')";
 		$db->query($insertUser);
+
+		
 		if($db){
 			$_SESSION['email'] = $email;
 

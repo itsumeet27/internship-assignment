@@ -10,7 +10,7 @@
     }else{
 ?>
   <main>
-    <h3 class="text-center p-3">This is the Internship Section</h3>
+    <h3 class="text-center p-3">Internship(s) Posted by Companies</h3>
     <?php
       if(isset($_GET['delete'])){
         $id = sanitize($_GET['delete']);
@@ -59,84 +59,6 @@
           $db->query($insertSql);
         }
     ?>
-    <div class="container">
-      <div class="">
-        <div class="card">
-          <div class="card-header card-title text-center">
-            <h4 class="text-center"><?=((isset($_GET['edit']))?'EDIT':'ADD');?> INTERNSHIP DETAILS</h4>
-          </div>
-          <div class="card-body">
-            <!-- Form -->
-            <form class="text-center" style="color: #757575;" action="internship.php?<?=((isset($_GET['edit']))?'edit='.$edit_id:'add=1');?>" method="post" enctype="multipart/form-data">
-
-              <!-- Category -->
-              <div class="md-form">
-                <input type="text" id="category" name="category" class="form-control" value="<?=$category;?>" required>
-                <label for="category">Category</label>
-              </div>
-              <!-- Posted On -->
-              <div class="md-form">
-                <input type="date" id="postedOn" name="postedOn" class="form-control" value="<?=$postedOn;?>">
-                <label for="postedOn">Posted On</label>
-              </div>
-              <!-- Apply By -->
-              <div class="md-form">
-                <input type="date" id="applyBy" name="applyBy" class="form-control" value="<?=$applyBy;?>" required>
-                <label for="applyBy">Apply By</label>
-              </div>
-              <!-- Name of Company -->
-              <div class="md-form">
-                <input type="text" id="nameOfCompany" name="nameOfCompany" class="form-control" value="<?=$nameOfCompany;?>" required>
-                <label for="nameOfCompany">Name of Company</label>
-              </div>
-              <!-- About Company -->
-              <div class="md-form">
-                <textarea id="aboutCompany" name="aboutCompany" class="md-textarea form-control" value="<?=$aboutCompany;?>" rows="3" required></textarea>
-                <label for="aboutCompany">About Company</label>
-              </div>
-              <!-- About Internship -->
-              <div class="md-form">
-                <textarea id="aboutInternship" name="aboutInternship" class="md-textarea form-control" value="<?=$aboutInternship;?>" rows="3" required></textarea>
-                <label for="aboutInternship">About Internship</label>
-              </div>
-              <!-- Location -->
-              <div class="md-form">
-                <input type="text" id="location" name="location" class="form-control" value="<?=$location;?>" required>
-                <label for="location">Location</label>
-              </div>
-              <!-- Perks of Internship -->
-              <div class="md-form">
-                <input type="text" id="perks" name="perks" class="form-control" value="<?=$perks;?>" required>
-                <label for="perks">Perks of Internship</label>
-              </div>
-              <!-- Duration -->
-              <div class="md-form">
-                <input type="number" id="duration" name="duration" class="form-control" value="<?=$duration;?>" required>
-                <label for="duration">Duration</label>
-              </div>
-              <!-- Stipend -->
-              <div class="md-form">
-                <input type="number" id="stipend" name="stipend" class="form-control" value="<?=$stipend;?>" required>
-                <label for="stipend">Stipend</label>
-              </div>
-              <!-- Price -->
-              <div class="md-form">
-                <input type="number" id="positions" name="positions" class="form-control" value="<?=$positions;?>" required>
-                <label for="positions">No. of Positions Available</label>
-              </div>
-              <!--Material textarea-->
-              <div class="md-form">
-                <textarea id="whoCanApply" name="whoCanApply" class="md-textarea form-control" value="<?=$whoCanApply;?>" rows="3" required></textarea>
-                <label for="whoCanApply">Who Can Apply</label>
-              </div>
-
-              <div class="card-footer">
-                <button class="btn btn-black waves-effect z-depth-0" type="submit" name="add"><?=((isset($_GET['edit']))?'EDIT':'ADD');?> INTERNSHIPS</button>
-              </div>
-            </form>
-          </div>      
-        </div>
-      </div>
       <?php } 
           else{
             $sql = "SELECT * FROM internships WHERE deleted = 0";
@@ -144,11 +66,8 @@
           
       ?>
       <div class="container-fluid table-responsive">  
-        <a href="internship.php?add=1" class="btn text-white" style="background-color: #1c2a48" id="add-product-btn">Add Internship</a>
-        <div class="clearfix"></div><br>
         <table class="table table-striped table-bordered" style="display: table;">
           <thead>
-            <th></th>
             <th></th>
             <th class="text-center"><h5 class="h5-responsive"><b>Name of Company</b></h5></th>
             <th class="text-center"><h5 class="h5-responsive"><b>Location</b></h5></th>
@@ -167,10 +86,7 @@
             <?php while($internship = mysqli_fetch_assoc($internships)):?>
               <tr>
                 <td>
-                  <a href="internship.php?edit=<?=$internship['id'];?>"><i class="fas fa-edit"></i></a>
-                </td>
-                <td>
-                  <a href="internship.php?delete=<?=$internship['id'];?>"><i class="fas fa-trash"></i></a>
+                  <a href="details.php?internship=<?=$internship['id'];?>"><i class="fas fa-edit"></i></a>
                 </td>
                 <td class="text-center"><?=$internship['nameOfCompany'];?></td>
                 <td class="text-center"><?=$internship['location'];?></td>
