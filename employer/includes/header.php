@@ -21,7 +21,7 @@
   <header>
     <!--Navbar -->
     <nav class="mb-1 navbar navbar-expand-lg navbar-dark default-color">
-      <a class="navbar-brand" href="index.php">Admin</a>
+      <a class="navbar-brand" href="index.php">Employer</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
         aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -32,7 +32,7 @@
             <a class="nav-link" href="index.php">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="companies.php">Companies</a>
+            <a class="nav-link" href="internship.php">Internship</a>
           </li>
           <?php 
             if(!isset($_SESSION['email'])){

@@ -3,6 +3,24 @@
 	include 'includes/header.php';
 	include '../core/init.php';
 ?>
+<div id="about" class="view" style="height: 50%;background: url('../img/ban.JPG')no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding:">
+	<div class="mask rgba-black-strong">
+		<div class="container-fluid d-flex align-items-center justify-content-center h-100">
+			<div class="row d-flex justify-content-center text-center">
+				<div class="col-md-10">
+				<a href=""><img src="../img/Logo.png" class="img-fluid" style="width: 400px;"></a>
+				<hr class="hr-light">
+				<h4 class="white-text my-4 h1-responsive" style="font-family: 'Cookie', cursive;">Admin Login</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
 <div class="container p-3">
 	<div class="card">
@@ -39,7 +57,7 @@
 				$email = $_POST['email'];
 				$password = $_POST['password'];
 
-				$sql = "SELECT * FROM users WHERE password = '$password' AND email = '$email'";
+				$sql = "SELECT * FROM employer WHERE password = '$password' AND email = '$email'";
 				$runSql = $db->query($sql);
 				$check_user = mysqli_num_rows($runSql);
 				if($check_user == 0){
