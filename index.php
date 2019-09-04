@@ -5,48 +5,47 @@
 ?>
 
 <?php 
-  $sql = "SELECT * FROM invoice WHERE deleted=0";
-  $invoices = $db->query($sql);
+  $sql = "SELECT * FROM internships WHERE deleted=0";
+  $internships = $db->query($sql);
 ?>
 <main>
-  <h3 class="text-center p-3">List of Invoices</h3>
+  <h3 class="text-center p-3">List of Internships</h3>
   <div class="container-fluid row">
-    <?php while($invoice = mysqli_fetch_assoc($invoices)): ?>
-    <div class="col-md-4">
+    <?php while($internship = mysqli_fetch_assoc($internships)): ?>
+    <div class="col-md-6">
       <div class="card">
         <div class="card-header">
-          <h5 class="p-2 text-center card-title"><?=$invoice['nameOfCompany'];?></h5>
+          <h2 class="p-2 text-center card-title"><?=$internship['nameOfCompany'];?></h2>
         </div>
         <div class="card-body">
+          <h4 class="p-2 h4-responsive float-left"><?=$internship['category'];?></h4>
+          <h5 class="p-2 h5-responsive float-right"><b>Location: </b><?=$internship['location'];?></h5>
           <table class="table table-bordered">
-            <tr>
-              <th><b>Invoice No</b></th>
-              <td><?=$invoice['invoiceNo'];?></td>
-            </tr>
-            <tr>
-              <th><b>Invoice Date</b></th>
-              <td><?=$invoice['invoiceDate'];?></td>
-            </tr>
-            <tr>
-              <th><b>Product Description</b></th>
-              <td><?=$invoice['productName'];?></td>
-            </tr>
-            <tr>
-              <th><b>Quantity</b></th>
-              <td><?=$invoice['quantity'];?></td>
-            </tr>
-            <tr>
-              <th><b>Price</b></th>
-              <td><?=$invoice['price'];?></td>
-            </tr>
+            <thead>
+              <th>Duration</th>
+              <th>Stipend</th>
+              <th>Posted On</th>
+              <th>Apply By</th>
+              <th>Available Positions</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td><?=$internship['duration'];?> months</td>
+                <td>&#8377; <?=$internship['stipend'];?></td>
+                <td><?=$internship['postedOn'];?></td>
+                <td><?=$internship['applyBy'];?></td>
+                <td><?=$internship['positions'];?></td>
+              </tr>
+            </tbody>
           </table>
         </div>
         <div class="card-footer">
-          <a href="invoice.php?invoice_id=<?=$invoice['id'];?>" class="btn btn-success btn-black waves-effect z-depth-0">Print</a>
+          <a href="internship.php?internship=<?=$internship['id'];?>" class="btn btn-success btn-black waves-effect z-depth-0">View Details</a>
         </div>
       </div>
     </div>
     <?php endwhile;?>
   </div>
+  <br>
 </main>
 <?php include 'includes/footer.php'; ?>
