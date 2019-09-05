@@ -48,7 +48,10 @@
           </li>
           <?php 
               if(!isset($_SESSION['email'])){
-                echo "<li class='nav-item'><a href='myaccount.php' class='nav-link' style='border-radius: 10em;'>My Account</a></li>";
+                echo "
+                <li class='nav-item'><a href='myaccount.php' class='nav-link' style='border-radius: 10em;'>Student</a></li>
+                <li class='nav-item'><a href='employer/myaccount.php' class='nav-link' style='border-radius: 10em;'>Employer</a></li>
+                ";
               }
               else{
                 echo "<li class='nav-item'><a href='myaccount.php' class='nav-link' style='border-radius: 10em;'>My Account</a></li>";
