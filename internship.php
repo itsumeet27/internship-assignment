@@ -91,7 +91,7 @@
         </div>
       </div>
       <div class="card-footer">
-        <a href="#" class="btn btn-success btn-black waves-effect z-depth-0">Apply Now</a>
+        <a href="" class="btn btn-success btn-black waves-effect z-depth-0">Apply Now</a>
       </div>
     </div>
   </div>
