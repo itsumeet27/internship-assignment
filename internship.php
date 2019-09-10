@@ -13,7 +13,7 @@
   $sqlapp = "SELECT * FROM applications WHERE applied = 0";
   $applications = $db->query($sqlapp);
   while($application = mysqli_fetch_assoc($applications)){
-    $id = $application['id'];
+    $app_id = $application['id'];
     $cus_id = $application['cus_id'];
     $emp_id = $application['emp_id'];
     $int_id = $application['int_id'];
@@ -102,7 +102,7 @@
         </div>
       </div>
       <div class="card-footer">
-        <a href="application.php?application=<?=$id;?>" class="btn btn-success btn-black waves-effect z-depth-0" name="apply">Apply Now</a>
+        <a href="application.php?apply=<?=$id;?>" class="btn btn-success btn-black waves-effect z-depth-0" name="apply">Apply Now</a>
       </div>
     </div>
   </div>
