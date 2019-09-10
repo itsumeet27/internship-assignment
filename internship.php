@@ -10,6 +10,17 @@
 <html lang="en">
 
 <?php 
+  $sqlapp = "SELECT * FROM applications WHERE applied = 0";
+  $applications = $db->query($sqlapp);
+  while($application = mysqli_fetch_assoc($applications)){
+    $id = $application['id'];
+    $cus_id = $application['cus_id'];
+    $emp_id = $application['emp_id'];
+    $int_id = $application['int_id'];
+  }
+?>
+
+<?php 
   if(isset($_GET['internship'])){
     $id = sanitize((int)$_GET['internship']);
     $sql = "SELECT * FROM internships WHERE id = '$id'";
@@ -91,7 +102,7 @@
         </div>
       </div>
       <div class="card-footer">
-        <a href="" class="btn btn-success btn-black waves-effect z-depth-0">Apply Now</a>
+        <a href="application.php?application=<?=$id;?>" class="btn btn-success btn-black waves-effect z-depth-0" name="apply">Apply Now</a>
       </div>
     </div>
   </div>
