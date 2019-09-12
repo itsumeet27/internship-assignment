@@ -5,25 +5,6 @@
 
 ?>
 
-<div id="about" class="view" style="height: 50%;background: url('img/ban.JPG')no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    padding: 20em 2em">
-      <div class="mask rgba-black-strong">
-        <div class="container-fluid d-flex align-items-center justify-content-center h-100">
-          <div class="row d-flex justify-content-center text-center">
-            <div class="col-md-10">
-              <a href=""><img src="img/Logo.png" class="img-fluid" style="width: 400px;"></a>
-              <hr class="hr-light">
-              <h4 class="white-text my-4 h1-responsive" style="font-family: 'Cookie', cursive;">Customer Registration</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
 <div class="container-fluid p-2">
 	<div class="card">
 		<div class="card-header">
@@ -46,7 +27,7 @@
 				              <input type="password" id="password" class="form-control form-control-sm" name="password">
 				              <label for="password">Password</label>
 				            </div>
-				            <div class="md-form form-sm"> <i class="fa fa-map prefix"></i>
+				            <div class="md-form form-sm"> <i class="fas fa-map prefix"></i>
 				              <input type="text" id="address1" class="form-control form-control-sm" name="address1">
 				              <label for="address1">Address1</label>
 				            </div>
@@ -78,7 +59,7 @@
 				            </div>
 						</div>
 						<div class="text-center mt-4">
-			              	<button class="btn" type="submit" name="submit" style="background: #607d8b">Submit <i class="fa fa-paper-plane-o ml-1"></i></button>
+			              	<button class="btn btn-default" type="submit" name="submit">Submit <i class="fa fa-paper-plane-o ml-1"></i></button>
 			            </div>					
 					</div>
 				</form>

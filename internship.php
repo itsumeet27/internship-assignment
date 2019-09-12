@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <?php 
+  session_start();
   include 'core/init.php';
   include 'includes/header.php';
   $sql = "SELECT * FROM internships WHERE deleted=0";
@@ -8,17 +9,6 @@
 ?>
 
 <html lang="en">
-
-<?php 
-  $sqlapp = "SELECT * FROM applications WHERE applied = 0";
-  $applications = $db->query($sqlapp);
-  while($application = mysqli_fetch_assoc($applications)){
-    $app_id = $application['id'];
-    $cus_id = $application['cus_id'];
-    $emp_id = $application['emp_id'];
-    $int_id = $application['int_id'];
-  }
-?>
 
 <?php 
   if(isset($_GET['internship'])){
@@ -101,8 +91,44 @@
           </div>
         </div>
       </div>
+
       <div class="card-footer">
+        <?php
+          if(!isset($_SESSION['email'])){
+            echo "<a href='login.php' class='btn btn-success btn-black waves-effect z-depth-0' name='apply'>Apply Now</a>";
+          }else{
+            
+            $email = $_SESSION['email'];
+            $sqlcus = "SELECT * FROM customers WHERE email = '$email'";
+            $result = $db->query($sqlcus);
+            while ($row_pro = mysqli_fetch_array($result)) {
+              $cus_id = $row_pro['id'];
+              $cus_name = $row_pro['fullname'];
+              $cus_email = $row_pro['email'];
+              $cus_address1 = $row_pro['address1'];
+              $cus_address2 = $row_pro['address2'];
+              $cus_city = $row_pro['city'];
+              $cus_state = $row_pro['state'];
+              $cus_zipcode = $row_pro['zipcode'];
+              $cus_phone = $row_pro['phone'];
+              $cus_country = $row_pro['country'];
+            }
+
+            $sqlapp = "SELECT * FROM applications WHERE cus_id = '$cus_id' AND int_id = '$id'";
+            $applications = $db->query($sqlapp);
+            while($application = mysqli_fetch_array($applications)){
+              $app_id = $application['id'];
+              $cus_app_id = $application['cus_id'];
+              $int_id = $application['int_id'];
+              $applied = $application['applied'];
+            }
+
+            if($cus_app_id == $cus_id){              
+              echo "<a href='#' class='btn btn-success btn-black waves-effect z-depth-0' name='applied'>Applied</a>";
+            }else{
+        ?>
         <a href="application.php?apply=<?=$id;?>" class="btn btn-success btn-black waves-effect z-depth-0" name="apply">Apply Now</a>
+        <?php } } ?>
       </div>
     </div>
   </div>

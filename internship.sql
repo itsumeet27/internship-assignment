@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 10, 2019 at 01:35 PM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.2
+-- Generation Time: Sep 12, 2019 at 08:38 PM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -40,7 +40,12 @@ CREATE TABLE `applications` (
 --
 
 INSERT INTO `applications` (`id`, `cus_id`, `int_id`, `applied`) VALUES
-(1, 1, 2, 1);
+(1, 1, 1, 1),
+(2, 1, 2, 1),
+(3, 2, 1, 1),
+(4, 2, 2, 1),
+(5, 3, 1, 1),
+(6, 3, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -69,7 +74,8 @@ CREATE TABLE `customers` (
 
 INSERT INTO `customers` (`id`, `fullname`, `email`, `password`, `address1`, `address2`, `city`, `state`, `zipcode`, `phone`, `country`, `ip`) VALUES
 (1, 'Sumeet Sharma', 'sksksharma0@gmail.com', 'Shar8286', '302, B-7, Sector-9', 'Shanti Nagar, Mira Road East', 'Mumbai', 'Maharashtra', 401107, '8286864601', 'India', '::1'),
-(2, 'Sumeet', 'sksharma.sharma87@gmail.com', 'Shar8286', '302, B-7, Sector-9', 'Shanti Nagar, Mira Road (E)', 'Mumbai', 'Maharashtra', 401107, '8850948655', 'India', '::1');
+(2, 'Sumeet', 'sksharma.sharma87@gmail.com', 'Shar8286', '302, B-7, Sector-9', 'Shanti Nagar, Mira Road (E)', 'Mumbai', 'Maharashtra', 401107, '8850948655', 'India', '::1'),
+(3, 'Nirbhay Verma', 'nirbhayvv@gmail.com', 'Nirbhay', '403, B-9, Sector-6', 'Shanti Nagar, Mira Road East', 'Mumbai', 'Maharashtra', 401107, '7208668292', 'India', '::1');
 
 -- --------------------------------------------------------
 
@@ -200,13 +206,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `applications`
 --
 ALTER TABLE `applications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `employer`

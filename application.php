@@ -28,7 +28,7 @@
 <?php
 	if(isset($_GET['apply'])){
 	    $id = sanitize((int)$_GET['apply']);
-    	$sqlint = "SELECT * FROM internships WHERE deleted=0";
+    	$sqlint = "SELECT * FROM internships WHERE deleted=0 AND id = '$id'";
 	  	$internships = $db->query($sqlint);
 	  	while ($internship = mysqli_fetch_assoc($internships)) {
 	  		$int_name = $internship['category'];
