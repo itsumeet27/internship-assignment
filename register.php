@@ -37,15 +37,15 @@
 				            </div>
 						</div>
 						<div class="col-md-6">
-				            <div class="md-form form-sm"> <i class="fa fa-map-marker prefix"></i>
+				            <div class="md-form form-sm"> <i class="fa fa-map-marker-alt prefix"></i>
 				              <input type="text" id="city" class="form-control form-control-sm" name="city">
 				              <label for="city">City</label>
 				            </div>
-				            <div class="md-form form-sm"> <i class="fa fa-map-marker prefix"></i>
+				            <div class="md-form form-sm"> <i class="fa fa-map-marker-alt prefix"></i>
 				              <input type="text" id="state" class="form-control form-control-sm" name="state">
 				              <label for="state">State</label>
 				            </div>
-				            <div class="md-form form-sm"> <i class="fa fa-map-marker prefix"></i>
+				            <div class="md-form form-sm"> <i class="fa fa-map-marker-alt prefix"></i>
 				              <input type="text" id="zipcode" class="form-control form-control-sm" name="zipcode">
 				              <label for="zipcode">Zipcode</label>
 				            </div>
@@ -53,7 +53,7 @@
 				              <input type="text" id="phone" class="form-control form-control-sm" name="phone">
 				              <label for="phone">Phone</label>
 				            </div>
-				            <div class="md-form form-sm"> <i class="fa fa-map-marker prefix"></i>
+				            <div class="md-form form-sm"> <i class="fa fa-map-marker-alt prefix"></i>
 				              <input type="text" id="country" class="form-control form-control-sm" name="country" value="India">
 				              <label for="country">Country</label>
 				            </div>
