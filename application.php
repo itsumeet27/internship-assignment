@@ -3,12 +3,14 @@
 	require_once 'core/init.php';
 ?>
 <?php 
+	// Check if user is logged in
 	if(!isset($_SESSION['email'])){
       echo "<script>window.open('login.php','_self')</script>";
     }
 ?>
 
 <?php
+	// Select the user based on logged in email
 	$email = $_SESSION['email'];
 	$sqlcus = "SELECT * FROM customers WHERE email = '$email'";
     $result = $db->query($sqlcus);
@@ -26,6 +28,7 @@
     }
 ?>
 <?php
+	// Fetch the internship selected/applied
 	if(isset($_GET['apply'])){
 	    $id = sanitize((int)$_GET['apply']);
     	$sqlint = "SELECT * FROM internships WHERE deleted=0 AND id = '$id'";
@@ -78,6 +81,7 @@
   <link href="css/style.css" rel="stylesheet">  
 </head>
 <body>
+	<!-- Message for succesful application -->
 	<h2 class="text-center text-success p-3">Dear <?=$cus_name;?>, You have successfully applied for <b><?=$int_name; ?></b> internship by <b><i><?=$company_name;?></i></b></h2>
 	<a href="index.php" class="btn btn-default">Go Back</a>
 </body>

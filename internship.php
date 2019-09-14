@@ -11,6 +11,7 @@
 <html lang="en">
 
 <?php 
+  // Fetch the internship details
   if(isset($_GET['internship'])){
     $id = sanitize((int)$_GET['internship']);
     $sql = "SELECT * FROM internships WHERE id = '$id'";
@@ -41,7 +42,7 @@
     exit();
   }
 ?>
-
+  <!-- Display internship details -->
   <div class="container-fluid">
     <div class="card">
       <div class="card-header">
