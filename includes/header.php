@@ -27,16 +27,14 @@
   <!-- Material Design Bootstrap -->
   <link href="css/mdb.min.css" rel="stylesheet">
   <!-- Your custom styles (optional) -->
-  <link href="css/style.css" rel="stylesheet">  
-  <!-- JQuery -->
-  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script> 
+  <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
   <header>
     <!--Navbar -->
     <nav class="mb-1 navbar navbar-expand-lg navbar-dark default-color">
-      <a class="navbar-brand" href="index.php">ASSIGNMENT</a>
+      <a class="navbar-brand" href="#">ASSIGNMENT</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
         aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
