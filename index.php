@@ -18,7 +18,7 @@
         <div class="card-header">
           <h2 class="p-2 text-center card-title"><?=$internship['nameOfCompany'];?></h2>
         </div>
-        <div class="card-body">
+        <div class="card-body table-responsive">
           <h4 class="p-2 h4-responsive float-left"><?=$internship['category'];?></h4>
           <h5 class="p-2 h5-responsive float-right"><b>Location: </b><?=$internship['location'];?></h5>
           <table class="table table-bordered">
