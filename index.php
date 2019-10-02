@@ -16,6 +16,10 @@
       <ul>
         <?php getCategoryFilter(); ?>
       </ul>
+      <h5 class="text-justify p-2">Company Name</h5>
+      <ul>
+        <?php getCompanyFilter(); ?>
+      </ul>
       <h5 class="text-justify p-2">Location</h5>
       <ul>
         <?php getLocationFilter(); ?>
@@ -24,9 +28,9 @@
       <ul>
         <?php getDurationFilter(); ?>
       </ul>
-      <h5 class="text-justify p-2">Company Name</h5>
+      <h5 class="text-justify p-2">Stipend</h5>
       <ul>
-        <?php getCompanyFilter(); ?>
+        <?php getStipendFilter(); ?>
       </ul>
     </div>
     <div class="col-md-9">

@@ -11,6 +11,7 @@
 		return $ip;
   	}
 
+  	//Category filter
 	function getCategoryFilter(){
 		global $db;
 		$get_cats = "SELECT DISTINCT category FROM internships WHERE deleted = 0";
@@ -22,6 +23,7 @@
 		}
 	}
 
+	//Location filter
 	function getLocationFilter(){
 		global $db;
 		$get_cats = "SELECT DISTINCT location FROM internships WHERE deleted = 0";
@@ -32,6 +34,7 @@
 		}
 	}
 
+	//Duration filter
 	function getDurationFilter(){
 		global $db;
 		$get_cats = "SELECT DISTINCT duration FROM internships WHERE deleted = 0";
@@ -42,6 +45,7 @@
 		}
 	}
 
+	//Company filter
 	function getCompanyFilter(){
 		global $db;
 		$get_cats = "SELECT DISTINCT nameOfCompany FROM internships WHERE deleted = 0";
@@ -49,6 +53,17 @@
 		while ($row_cats = mysqli_fetch_array($run_cats)) {
 			$filter_nameOfCompany = $row_cats['nameOfCompany'];
 			echo "<li><a href='index.php?filter=$filter_nameOfCompany' style='padding: 7.5px;'>$filter_nameOfCompany</a></li>";		
+		}
+	}
+
+	//Stipend filter
+	function getStipendFilter(){
+		global $db;
+		$get_cats = "SELECT DISTINCT stipend FROM internships WHERE deleted = 0";
+		$run_cats = mysqli_query($db, $get_cats);
+		while ($row_cats = mysqli_fetch_array($run_cats)) {
+			$filter_stipend = $row_cats['stipend'];
+			echo "<li><a href='index.php?filter=$filter_stipend' style='padding: 7.5px;'>&#8377; $filter_stipend</a></li>";
 		}
 	}
 
@@ -109,7 +124,7 @@
 		if(isset($_GET['filter'])){
 			$filter = $_GET['filter'];
 			global $db;
-			$get_category = "SELECT * FROM internships WHERE deleted = 0 AND category = '$filter' OR location = '$filter' OR duration = '$filter' OR nameOfCompany = '$filter'";
+			$get_category = "SELECT * FROM internships WHERE deleted = 0 AND category = '$filter' OR location = '$filter' OR duration = '$filter' OR nameOfCompany = '$filter' OR stipend = '$filter'";
 			$run_category = mysqli_query($db, $get_category);
 			while ($row_category = mysqli_fetch_array($run_category)) {
 				$int_id = $row_category['id'];
