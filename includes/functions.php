@@ -13,7 +13,7 @@
 
 	function getCategoryFilter(){
 		global $db;
-		$get_cats = "SELECT * FROM internships WHERE deleted = 0";
+		$get_cats = "SELECT DISTINCT category FROM internships WHERE deleted = 0";
 		$run_cats = mysqli_query($db, $get_cats);
 
 		while ($row_cats = mysqli_fetch_array($run_cats)) {
@@ -39,6 +39,16 @@
 		while ($row_cats = mysqli_fetch_array($run_cats)) {
 			$filter_duration = $row_cats['duration'];
 			echo "<li><a href='index.php?filter=$filter_duration' style='padding: 7.5px;'>$filter_duration months</a></li>";		
+		}
+	}
+
+	function getCompanyFilter(){
+		global $db;
+		$get_cats = "SELECT DISTINCT nameOfCompany FROM internships WHERE deleted = 0";
+		$run_cats = mysqli_query($db, $get_cats);
+		while ($row_cats = mysqli_fetch_array($run_cats)) {
+			$filter_nameOfCompany = $row_cats['nameOfCompany'];
+			echo "<li><a href='index.php?filter=$filter_nameOfCompany' style='padding: 7.5px;'>$filter_nameOfCompany</a></li>";		
 		}
 	}
 
@@ -99,7 +109,7 @@
 		if(isset($_GET['filter'])){
 			$filter = $_GET['filter'];
 			global $db;
-			$get_category = "SELECT * FROM internships WHERE deleted = 0 AND category = '$filter' OR location = '$filter' OR duration = '$filter'";
+			$get_category = "SELECT * FROM internships WHERE deleted = 0 AND category = '$filter' OR location = '$filter' OR duration = '$filter' OR nameOfCompany = '$filter'";
 			$run_category = mysqli_query($db, $get_category);
 			while ($row_category = mysqli_fetch_array($run_category)) {
 				$int_id = $row_category['id'];

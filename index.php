@@ -24,6 +24,10 @@
       <ul>
         <?php getDurationFilter(); ?>
       </ul>
+      <h5 class="text-justify p-2">Company Name</h5>
+      <ul>
+        <?php getCompanyFilter(); ?>
+      </ul>
     </div>
     <div class="col-md-9">
       <?php getInternships(); ?>
