@@ -20,6 +20,10 @@
       <ul>
         <?php getLocationFilter(); ?>
       </ul>
+      <h5 class="text-justify p-2">Duration</h5>
+      <ul>
+        <?php getDurationFilter(); ?>
+      </ul>
     </div>
     <div class="col-md-9">
       <?php getInternships(); ?>
