@@ -7,67 +7,12 @@
 <?php 
   $sql = "SELECT * FROM internships WHERE deleted=0";
   $internships = $db->query($sql);
-  while($internship_filter = mysqli_fetch_assoc($internships)){
-    $category = $internship_filter['category'];
-    $location = $internship_filter['location'];
-    $nameOfCompany = $internship_filter['nameOfCompany'];
-    $duration = $internship_filter['duration'];
-  }
 ?>
 <main>
   <h2 class="text-center p-3">List of Internships</h2>
   <div class="container-fluid row">
     <div class="col-md-3">
       <h4 class="text-justify p-2">Filters</h4>
-      <form action="" method="post">
-
-        <h5 class="text-justify p-2">Category</h5>
-        <input type="radio" name="category" value="<?=$category;?>"> <?=$category;?>
-        <br>
-        <h5 class="text-justify p-2">Location</h5>
-        <input type="radio" name="location" value="<?=$location;?>"> <?=$location;?>
-        <br>
-        <h5 class="text-justify p-2">Name of Company</h5>
-        <input type="radio" name="nameOfCompany" value="<?=$nameOfCompany;?>"> <?=$nameOfCompany;?>
-        <br>
-        <h5 class="text-justify p-2">Duration</h5>
-        <input type="radio" name="duration" value="<?=$duration;?>"> <?=$duration;?> months
-        <br>
-        <button type="submit" name="search" class="btn btn-default">Search</button>
-
-      </form>
-
-
-
-      <?php 
-        if(isset($_POST['category']) && !empty($_POST['category'])){
-          if ($_POST['category'] == $category){
-            $sql .= " AND category = '$category'";
-            $internships = $db->query($sql);
-          }  
-        }
-
-        if(isset($_POST['location']) && !empty($_POST['location'])){
-          if ($_POST['location'] == $location){
-            $sql .= " AND location = '$location'";
-            $internships = $db->query($sql);
-          }  
-        }
-
-        if(isset($_POST['nameOfCompany']) && !empty($_POST['nameOfCompany'])){
-          if ($_POST['nameOfCompany'] == $nameOfCompany){
-            $sql .= " AND nameOfCompany = '$nameOfCompany'";
-            $internships = $db->query($sql);
-          }  
-        }
-
-        if(isset($_POST['duration']) && !empty($_POST['duration'])){
-          if ($_POST['duration'] == $duration){
-            $sql .= " AND duration = '$duration'";
-            $internships = $db->query($sql);
-          }  
-        }
-      ?>
     </div>
     <div class="col-md-9">
       <!-- List of Internships -->
