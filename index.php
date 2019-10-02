@@ -5,8 +5,7 @@
 ?>
 
 <?php 
-  $sql = "SELECT * FROM internships WHERE deleted=0";
-  $internships = $db->query($sql);
+  
 ?>
 <main>
   <h2 class="text-center p-3">List of Internships</h2>
@@ -19,6 +18,7 @@
       </ul>
     </div>
     <div class="col-md-9">
+      <?php getInternships(); ?>
       <?php getCategory(); ?>
     </div>    
   </div>
