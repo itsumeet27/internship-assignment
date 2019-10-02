@@ -11,23 +11,29 @@
 		return $ip;
   	}
 
-	function getFilters(){
+	function getCategoryFilter(){
 		global $db;
-
 		$get_cats = "SELECT * FROM internships WHERE deleted = 0";
 		$run_cats = mysqli_query($db, $get_cats);
 
 		while ($row_cats = mysqli_fetch_array($run_cats)) {
-			$filter_id = $row_cats['id'];
 			$filter_category = $row_cats['category'];
+			echo "<li><a href='index.php?filter=$filter_category' style='padding: 7.5px;'>$filter_category</a></li>";		
+		}
+	}
 
-			echo "<li><a href='index.php?category=$filter_category' style='padding: 7.5px;'>$filter_category</a></li>";
-			
+	function getLocationFilter(){
+		global $db;
+		$get_cats = "SELECT DISTINCT location FROM internships WHERE deleted = 0";
+		$run_cats = mysqli_query($db, $get_cats);
+		while ($row_cats = mysqli_fetch_array($run_cats)) {
+			$filter_location = $row_cats['location'];
+			echo "<li><a href='index.php?filter=$filter_location' style='padding: 7.5px;'>$filter_location</a></li>";		
 		}
 	}
 
 	function getInternships(){
-		if(!isset($_GET['category'])){
+		if(!isset($_GET['filter'])){
 			global $db;
 			$sql = "SELECT * FROM internships WHERE deleted=0";
   			$internships = $db->query($sql);
@@ -79,11 +85,11 @@
 		}
 	}
 
-	function getCategory(){
-		if(isset($_GET['category'])){
-			$category = $_GET['category'];
+	function getFilteredInternship(){
+		if(isset($_GET['filter'])){
+			$filter = $_GET['filter'];
 			global $db;
-			$get_category = "SELECT * FROM internships WHERE deleted = 0 AND category = '$category'";
+			$get_category = "SELECT * FROM internships WHERE deleted = 0 AND category = '$filter' OR location = '$filter'";
 			$run_category = mysqli_query($db, $get_category);
 			while ($row_category = mysqli_fetch_array($run_category)) {
 				$int_id = $row_category['id'];

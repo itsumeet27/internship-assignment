@@ -14,12 +14,16 @@
       <h4 class="text-justify p-2">Filters</h4>
       <h5 class="text-justify p-2">Category</h5>
       <ul>
-        <?php getFilters(); ?>
+        <?php getCategoryFilter(); ?>
+      </ul>
+      <h5 class="text-justify p-2">Location</h5>
+      <ul>
+        <?php getLocationFilter(); ?>
       </ul>
     </div>
     <div class="col-md-9">
       <?php getInternships(); ?>
-      <?php getCategory(); ?>
+      <?php getFilteredInternship(); ?>
     </div>    
   </div>
 </main>
