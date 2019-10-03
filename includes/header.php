@@ -18,6 +18,13 @@
   <link href="css/mdb.min.css" rel="stylesheet">
   <!-- Your custom styles (optional) -->
   <link href="css/style.css" rel="stylesheet">
+
+  <style type="text/css">
+    .filter li{
+      list-style-type: none;
+      padding: 5px 0;
+    }
+  </style>
 </head>
 
 <body>

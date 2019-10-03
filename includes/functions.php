@@ -19,7 +19,7 @@
 
 		while ($row_cats = mysqli_fetch_array($run_cats)) {
 			$filter_category = $row_cats['category'];
-			echo "<li><a href='index.php?filter=$filter_category' style='padding: 7.5px;'>$filter_category</a></li>";		
+			echo "<li><a href='index.php?filter=$filter_category'>$filter_category</a></li>";		
 		}
 	}
 
@@ -30,7 +30,7 @@
 		$run_cats = mysqli_query($db, $get_cats);
 		while ($row_cats = mysqli_fetch_array($run_cats)) {
 			$filter_location = $row_cats['location'];
-			echo "<li><a href='index.php?filter=$filter_location' style='padding: 7.5px;'>$filter_location</a></li>";		
+			echo "<li><a href='index.php?filter=$filter_location'>$filter_location</a></li>";		
 		}
 	}
 
@@ -41,7 +41,7 @@
 		$run_cats = mysqli_query($db, $get_cats);
 		while ($row_cats = mysqli_fetch_array($run_cats)) {
 			$filter_duration = $row_cats['duration'];
-			echo "<li><a href='index.php?filter=$filter_duration' style='padding: 7.5px;'>$filter_duration months</a></li>";		
+			echo "<li><a href='index.php?filter=$filter_duration'>$filter_duration months</a></li>";		
 		}
 	}
 
@@ -52,7 +52,7 @@
 		$run_cats = mysqli_query($db, $get_cats);
 		while ($row_cats = mysqli_fetch_array($run_cats)) {
 			$filter_nameOfCompany = $row_cats['nameOfCompany'];
-			echo "<li><a href='index.php?filter=$filter_nameOfCompany' style='padding: 7.5px;'>$filter_nameOfCompany</a></li>";		
+			echo "<li><a href='index.php?filter=$filter_nameOfCompany'>$filter_nameOfCompany</a></li>";		
 		}
 	}
 
@@ -63,7 +63,7 @@
 		$run_cats = mysqli_query($db, $get_cats);
 		while ($row_cats = mysqli_fetch_array($run_cats)) {
 			$filter_stipend = $row_cats['stipend'];
-			echo "<li><a href='index.php?filter=$filter_stipend' style='padding: 7.5px;'>&#8377; $filter_stipend</a></li>";
+			echo "<li><a href='index.php?filter=$filter_stipend'>&#8377; $filter_stipend</a></li>";
 		}
 	}
 
