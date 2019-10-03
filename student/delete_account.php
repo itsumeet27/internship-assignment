@@ -1,5 +1,6 @@
 <?php 
 	include('core/init.php');
+	include('includes/functions.php');
 ?>
 <div class="container-fluid p-2">
 	<div class="card">
