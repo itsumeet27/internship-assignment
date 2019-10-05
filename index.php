@@ -14,25 +14,25 @@
         </div>
         <div class="card-body">
           <h5 class="text-justify p-2">Category</h5>
-          <ul class="filter">
+          <table class="filter table table-striped">
             <?php getCategoryFilter(); ?>
-          </ul>
+          </table>
           <h5 class="text-justify p-2">Company Name</h5>
-          <ul class="filter">
+          <table class="filter table table-striped">
             <?php getCompanyFilter(); ?>
-          </ul>
+          </table>
           <h5 class="text-justify p-2">Location</h5>
-          <ul class="filter">
+          <table class="filter table table-striped">
             <?php getLocationFilter(); ?>
-          </ul>
+          </table>
           <h5 class="text-justify p-2">Duration</h5>
-          <ul class="filter">
+          <table class="filter table table-striped">
             <?php getDurationFilter(); ?>
-          </ul>
+          </table>
           <h5 class="text-justify p-2">Stipend</h5>
-          <ul class="filter">
+          <table class="filter table table-striped">
             <?php getStipendFilter(); ?>
-          </ul>
+          </table>
         </div>
       </div>      
     </div>
