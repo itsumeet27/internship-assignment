@@ -85,6 +85,13 @@
 		$insertCus = "INSERT INTO customers (ip,fullname,email,password,address1,address2,city,state,zipcode,phone,country) VALUES ('$ip','$fullname','$email','$password','$address1','$address2','$city','$state','$zipcode','$phone','$country')";
 		$db->query($insertCus);
 
+		//The code below does not work on localhost but does work on your domain server
+		$from = "itsumeet@gmail.com";
+		$to = $email;
+		$subject = "Sucessful Registration";
+		$body = "Hello $fullname! You have successfully registered with us. Stay tuned with us to apply for various internships!";
+		$headers = "From: $from";
+
 		$sel_cart = "SELECT * FROM cart WHERE ip_add = '$ip'";
 		$run_cart = $db->query($sel_cart);
 		$check_cart = mysqli_num_rows($run_cart);
